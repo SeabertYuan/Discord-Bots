@@ -23,13 +23,13 @@ client.on('message', message =>{
 	//console.log(message.channel)
 	if(message.channel.type == 'dm')
 		sendConfess(message, desChannel);
-	timer = setInterval(() => {
-		let spamChannel = client.channels.cache.get('809624163533979689');
-		let file = './resources/im_1.jpg';
-		spamChannel.send("I use linux btw", {files: [file]});
-		clearInterval(timer);
-	}, 300000);
-	clearInterval(timer);
+	//if(!message.author.bot)
+		//timer = setInterval(() => {
+		//	let spamChannel = client.channels.cache.get('809624163533979689');
+		//	let file = './resources/im_1.jpg';
+		//	spamChannel.send("(Andy's idea) I use linux btw", {files: [file]});
+			//clearInterval(timer);
+		//}, 300000);
 });
 
 /*function sendLinux(callback){
@@ -44,7 +44,7 @@ function sendConfess(message, desChannel){
 		let sMessage = message.content.replace('#', '"');
 		console.log(sMessage);
 		if(sMessage.includes('@'))
-			desChannel.send(`${message.author} you want to fucking ping bro?`);
+			desChannel.send(`${message.author.username} you want to fucking ping bro?`);
 		else
 			desChannel.send(sMessage+'"');
 	}
