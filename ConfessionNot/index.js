@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const {token} = require('./config.json');
 //login
-client.login(token);
+client.login(process.env.BOT_TOKEN);
 var timer;
 
 //log ready
