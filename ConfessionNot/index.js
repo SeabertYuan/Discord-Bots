@@ -2,7 +2,7 @@ require('dotenv').config();
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const {token} = require('./config.json');
+//const {token} = require('./config.json');
 //login
 client.login();
 var timer;
