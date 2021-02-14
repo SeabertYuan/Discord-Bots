@@ -1,1 +1,1 @@
-service: node index.js
+service: npm start
