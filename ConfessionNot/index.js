@@ -17,7 +17,7 @@ client.on('message', message =>{
 	//find channel by its name
 	let desChannel = client.channels.cache.find(channel => channel.name === `confessions`);
 	//if starts with
-	if(message.content.startsWith('!')){
+	if(message.content.startsWith('|')){
 		getDelete(message, desChannel);
 		message.author.send(`To confess, use the prefix "#"`);
 	}
