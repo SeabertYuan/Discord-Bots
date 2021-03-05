@@ -64,6 +64,7 @@ function listMajors(auth) {
     if (rows.length) {
       // Print columns b and h, which correspond to indices 0 and 6.
       rows.map((row) => {
+        names.push(row[0]);
         discord_id.push(row[6]);
         //console.log(`${row[0]}, ${row[6]}`);
       });
@@ -89,8 +90,9 @@ client.on('message', message =>{
   }
 	const command = args.toLowerCase();
 	if(command == 'ihavereadandagreetotherules'){
-		client.commands.get('verify').execute(message);
     client.commands.get('verify').checkDiscord(discord_id);
+    client.commands.get('verify').checkName(names);
+		client.commands.get('verify').execute(message, discord_id, names);
 		console.log('command called');
 	}
 });
