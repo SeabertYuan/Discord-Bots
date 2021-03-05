@@ -2,6 +2,7 @@ const fs = require('fs'); //file reader
 const Discord = require('discord.js'); //discord.js
 const client = new Discord.Client(); //discord
 const {prefix, token} = require(`./config.json`); //load configs
+const operations = require('./operations.js');
 const readline = require('readline');
 const {google} = require('googleapis');
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
@@ -76,6 +77,8 @@ function listMajors(auth) {
 //log ready when everything is loaded
 client.once('ready', () => {
 	console.log('ready!');
+  discord_id = operations.checkDiscord(discord_id);
+  names = operations.checkName(names);
 });
 //login
 client.login(token);
@@ -90,8 +93,6 @@ client.on('message', message =>{
   }
 	const command = args.toLowerCase();
 	if(command == 'ihavereadandagreetotherules'){
-    client.commands.get('verify').checkDiscord(discord_id);
-    client.commands.get('verify').checkName(names);
 		client.commands.get('verify').execute(message, discord_id, names);
 		console.log('command called');
 	}
