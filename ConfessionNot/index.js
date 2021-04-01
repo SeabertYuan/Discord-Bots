@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const {token} = require('./config.json');
 //login
-client.login(token);
+client.login();
 
 const guildId = '587793441208139776';
 
