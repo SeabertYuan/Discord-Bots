@@ -100,7 +100,7 @@ const replyRandomized = (interaction, response) => {
 //whenever a message is sent
 client.on('message', message => {
 	//find channel by its name
-	let desChannel = client.channels.cache.find(channel => channel.name === `confessions-test`);
+	let desChannel = client.channels.cache.find(channel => channel.name === `confessions`);
 	//if starts with
 	if (message.content.startsWith('^')) {
 		getDelete(message, desChannel);
