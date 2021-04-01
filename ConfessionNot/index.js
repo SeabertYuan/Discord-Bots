@@ -35,6 +35,8 @@ client.on('ready', async () => {
 				}
 			]
 		},
+	});
+	await getApp(guildId).commands.post({
 		data: {
 			name: 'confess',
 			description: 'confess anonymously!',
@@ -66,6 +68,7 @@ client.on('ready', async () => {
 const reply = (interaction, response) => {
 	let confession = '"';
 	confession += response+'"';
+	let desChannel = client.channels.cache.find(channel => channel.name === `confessions`);
 	sendConfess(confession, desChannel);
 	//for (i = 0; i < confession.length; i++) {
 		//confession = confession.replace("@", "");
