@@ -66,17 +66,18 @@ client.on('ready', async () => {
 const reply = (interaction, response) => {
 	let confession = '"';
 	confession += response+'"';
-	for (i = 0; i < confession.length; i++) {
-		confession = confession.replace("@", "");
-	}
-	client.api.interactions(interaction.id, interaction.token).callback.post({
-		data: {
-			type: 4,
-			data: {
-				content: confession,
-			},
-		}
-	});
+	sendConfess(confession, desChannel);
+	//for (i = 0; i < confession.length; i++) {
+		//confession = confession.replace("@", "");
+	//}
+	//client.api.interactions(interaction.id, interaction.token).callback.post({
+		//data: {
+			//type: 4,
+			//data: {
+				//content: confession,
+			//},
+		//}
+	//});
 }
 const replyRandomized = (interaction, response) => {
 	let randomized = "";
@@ -122,6 +123,15 @@ function sendConfess (message, desChannel) {
 	if(message.content.startsWith('#')){
 		let sMessage = message.content.replace('#', '"');
 		console.log(sMessage);
+		if (sMessage.includes('@')) {
+			for (i = 0; i < sMessage.length; i++) {
+				sMessage = sMessage.replace("@", ` `);
+			}
+			desChannel.send(sMessage+'"');
+		}
+		else
+			desChannel.send(sMessage+'"');
+	} else {
 		if (sMessage.includes('@')) {
 			for (i = 0; i < sMessage.length; i++) {
 				sMessage = sMessage.replace("@", ` `);
