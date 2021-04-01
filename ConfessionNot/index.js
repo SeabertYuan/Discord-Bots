@@ -66,7 +66,7 @@ client.on('ready', async () => {
 });
 
 const reply = (interaction, response) => {
-	let confession = '"';
+	let confession = '#';
 	confession += response+'"';
 	let desChannel = client.channels.cache.find(channel => channel.name === `confessions`);
 	sendConfess(confession, desChannel);
@@ -123,18 +123,9 @@ client.on('message', message => {
 	callback();
 }*/
 function sendConfess (message, desChannel) {
-	if(message.content.startsWith('#')){
+	if (message.content.startsWith('#')) {
 		let sMessage = message.content.replace('#', '"');
 		console.log(sMessage);
-		if (sMessage.includes('@')) {
-			for (i = 0; i < sMessage.length; i++) {
-				sMessage = sMessage.replace("@", ` `);
-			}
-			desChannel.send(sMessage+'"');
-		}
-		else
-			desChannel.send(sMessage+'"');
-	} else {
 		if (sMessage.includes('@')) {
 			for (i = 0; i < sMessage.length; i++) {
 				sMessage = sMessage.replace("@", ` `);
