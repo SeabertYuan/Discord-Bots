@@ -2,11 +2,11 @@ require('dotenv').config();
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const {token} = require('./config.json');
+//const {token} = require('./config.json');
 //login
 client.login();
 
-const guildId = '587793441208139776';
+const guildId = '756351450837155891';
 
 const getApp = (guildId) => {
 	const app = client.api.applications(client.user.id);
